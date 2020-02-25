@@ -22,7 +22,7 @@ pipelines:
           - echo $DOCKER_HUB_PASSWORD | docker login --username $DOCKER_HUB_USERNAME --password-stdin
           # push the new Docker image to the Docker registry
           - docker push $IMAGE_NAME
-          - DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' $IMAGE_NAME | awk -F: '{print $2}')
+          - DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' $IMAGE_NAME | awk -F':' '{print $2}')
           - TAG=${DIGEST:0:13}
           - docker tag $IMAGE_NAME $IMAGE_NAME:$TAG
           - docker push $IMAGE_NAME:$TAG
