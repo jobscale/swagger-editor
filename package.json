@@ -1,0 +1,11 @@
+{
+  "name": "ghcr.io/jobscale/swagger-editor",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "author": "jobscale <jobscale@users.noreply.github.com>",
+  "scripts": {
+    "serve": "docker run --name swagger-editor -p 8080:8080 -e SWAGGER_FILE=/usr/share/nginx/src/openapi.yaml -v $(pwd)/openapi.yaml:/usr/share/nginx/src/openapi.yaml -i ghcr.io/jobscale/swagger-editor"
+  },
+  "license": "MIT"
+}
